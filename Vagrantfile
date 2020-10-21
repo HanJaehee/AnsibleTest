@@ -4,137 +4,163 @@
 
 Vagrant.configure("2") do |config|
 
-  # ============ #
-  # CentOs nodes #
-  # ============ #
-  #Ansible-Node01
-  config.vm.define "ansible-node01" do |cfg|
-    cfg.vm.box = "centos/7"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Node01(github_SysNet4Admin)"
-      vb.customize ["modifyvm", :id, "--audio", "none"]
-    end
-    cfg.vm.host_name = "ansible-node01"
-    cfg.vm.network "public_network", ip: "192.168.0.11", bridge: "en0: Wi-Fi (Wireless)"
-    cfg.vm.network "forwarded_port", guest:22, host:60011, auto_correct:true, id:"ssh"
-    cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-    cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
-  end
-  #Ansible-Node02
-  config.vm.define "ansible-node02" do |cfg|
-    cfg.vm.box = "centos/7"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Node02(github_SysNet4Admin)"
-      vb.customize ["modifyvm", :id, "--audio", "none"]
-    end
-    cfg.vm.host_name = "ansible-node01"
-    cfg.vm.network "public_network", ip: "192.168.0.12", bridge: "en0: Wi-Fi (Wireless)"
-    cfg.vm.network "forwarded_port", guest:22, host:60012, auto_correct:true, id:"ssh"
-    cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-    cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
-    #shell 의 path는 원격지로 파일 옮기지 않고 서버의 파일을 실행 시킬 수 있음
-  end
-  #Ansible-Node03
-  config.vm.define "ansible-node03" do |cfg|
-    cfg.vm.box = "centos/7"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Node03(github_SysNet4Admin)"
-      vb.customize ["modifyvm", :id, "--audio", "none"]
-    end
-    cfg.vm.host_name = "ansible-node03"
-    cfg.vm.network "public_network", ip: "192.168.0.13", bridge: "en0: Wi-Fi (Wireless)"
-    cfg.vm.network "forwarded_port", guest:22, host:60013, auto_correct:true, id:"ssh"
-    cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-    cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
-  end
+    # ============ #
+    # CentOs nodes #
+    # ============ #
 
-  # ============== #
-  # Ubuntu nodes #
-  # ============== #
-
-  #Ansible-Node04
-  config.vm.define "ansible-node04" do |cfg|
-    cfg.vm.box = "ubuntu/trusty64"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Node04(github_SysNet4Admin)"
-      vb.customize ["modifyvm", :id, "--audio", "none"]
+    #Ansible-Node101
+    config.vm.define "ansible-node101" do |cfg|
+      cfg.vm.box = "centos/7"
+      cfg.vm.provider "virtualbox" do |vb|
+        vb.name = "Ansible-Node101(github_SysNet4Admin)"
+        vb.customize ["modifyvm", :id, "--audio", "none"]
+      end
+      cfg.vm.host_name = "ansible-node101"
+      cfg.vm.network "public_network", ip: "192.168.0.101", bridge: "en0: Wi-Fi (Wireless)"
+      cfg.vm.network "forwarded_port", guest:22, host:60101, auto_correct:true, id:"ssh"
+      cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
     end
-    cfg.vm.host_name = "ansible-node04"
-    cfg.vm.network "public_network", ip: "192.168.0.14", bridge: "en0: Wi-Fi (Wireless)"
-    cfg.vm.network "forwarded_port", guest:22, host:60014, auto_correct:true, id:"ssh"
-    cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-  end
-
-  #Ansible-Node05
-  config.vm.define "ansible-node05" do |cfg|
-    cfg.vm.box = "ubuntu/trusty64"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Node05(github_SysNet4Admin)"
-      vb.customize ["modifyvm", :id, "--audio", "none"]
+    #Ansible-Node102
+    config.vm.define "ansible-node102" do |cfg|
+      cfg.vm.box = "centos/7"
+      cfg.vm.provider "virtualbox" do |vb|
+        vb.name = "Ansible-Node102(github_SysNet4Admin)"
+        vb.customize ["modifyvm", :id, "--audio", "none"]
+      end
+      cfg.vm.host_name = "ansible-node102"
+      cfg.vm.network "public_network", ip: "192.168.0.102", bridge: "en0: Wi-Fi (Wireless)"
+      cfg.vm.network "forwarded_port", guest:22, host:60102, auto_correct:true, id:"ssh"
+      cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
+      #shell 의 path는 원격지로 파일 옮기지 않고 서버의 파일을 실행 시킬 수 있음
     end
-    cfg.vm.host_name = "ansible-node05"
-    cfg.vm.network "public_network", ip: "192.168.0.15", bridge: "en0: Wi-Fi (Wireless)"
-    cfg.vm.network "forwarded_port", guest:22, host:60015, auto_correct:true, id:"ssh"
-    cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-  end
-
-  #Ansible-Node06
-  config.vm.define "ansible-node06" do |cfg|
-    cfg.vm.box = "ubuntu/trusty64"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Node06(github_SysNet4Admin)"
-      vb.customize ["modifyvm", :id, "--audio", "none"]
+    #Ansible-Node103
+    config.vm.define "ansible-node103" do |cfg|
+      cfg.vm.box = "centos/7"
+      cfg.vm.provider "virtualbox" do |vb|
+        vb.name = "Ansible-Node103(github_SysNet4Admin)"
+        vb.customize ["modifyvm", :id, "--audio", "none"]
+      end
+      cfg.vm.host_name = "ansible-node103"
+      cfg.vm.network "public_network", ip: "192.168.0.103", bridge: "en0: Wi-Fi (Wireless)"
+      cfg.vm.network "forwarded_port", guest:22, host:60103, auto_correct:true, id:"ssh"
+      cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
     end
-    cfg.vm.host_name = "ansible-node06"
-    cfg.vm.network "public_network", ip: "192.168.0.16", bridge: "en0: Wi-Fi (Wireless)"
-    cfg.vm.network "forwarded_port", guest:22, host:60016, auto_correct:true, id:"ssh"
-    cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-  end
-
-  # ============== #
-  # Windows node #
-  # ============== #
-
-   #Ansible-Node07
-   config.vm.define "ansible-node07" do |cfg|
-    cfg.vm.box = "sysnet4admin/windows2016"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Node07(github_SysNet4Admin)"
-      vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
-      vb.customize ["modifyvm", :id, "--audio", "none"]
-      vb.gui = false
-    end
-      cfg.vm.host_name = "ansible-node07"
-      cfg.vm.network "public_network", ip: "192.168.0.17", bridge: "en0: Wi-Fi (Wireless)"
-      cfg.vm.network "forwarded_port", guest:22, host:60017, auto_correct:true, id:"ssh"
-      cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-      cfg.vm.provision "shell", inline: "netsh advfirewall set allprofiles state off"
-    end
-
-  # ============== #
-  # Ansible Server #
-  # ============== #
-
-  config.vm.define "ansible-server" do |cfg|
-    cfg.vm.box = "centos/7"
-    cfg.vm.provider "virtualbox" do |vb|
-      vb.name = "Ansible-Server(github_SysNet4Admin)"
-      vb.customize ["modifyvm", :id, "--audio", "none"]
-    end
-    cfg.vm.host_name="ansible-server"
-    cfg.vm.network "public_network", ip:"192.168.0.10", bridge: "en0: Wi-Fi (Wireless)"
-    cfg.vm.network "forwarded_port", guest:22, host:60010, auto_correct: true, id:"ssh"
-    cfg.vm.synced_folder "./data", "/vagrant", disalbed:true
-    cfg.vm.provision "shell", inline: "sudo yum install epel-release -y"
-    cfg.vm.provision "shell", inline: "sudo yum repolist -y"
-    cfg.vm.provision "shell", inline: "yum install ansible -y"
-    cfg.vm.provision "file", source: "ansible_env_ready.yml", destination: "ansible_env_ready.yml"
-    cfg.vm.provision "file", source: "nginx_install.yml", destination: "nginx_install.yml"
-    cfg.vm.provision "file", source: "nginx_remove.yml", destination: "nginx_remove.yml"
-    cfg.vm.provision "file", source: "nfs.yml", destination: "nfs.yml"
-    cfg.vm.provision "file", source: "timezone.yml", destination: "timezone.yml"
+    #Ansible-Node104
+    config.vm.define "ansible-node104" do |cfg|
+        cfg.vm.box = "centos/7"
+        cfg.vm.provider "virtualbox" do |vb|
+          vb.name = "Ansible-Node104(github_SysNet4Admin)"
+          vb.customize ["modifyvm", :id, "--audio", "none"]
+        end
+        cfg.vm.host_name = "ansible-node104"
+        cfg.vm.network "public_network", ip: "192.168.0.104", bridge: "en0: Wi-Fi (Wireless)"
+        cfg.vm.network "forwarded_port", guest:22, host:60104, auto_correct:true, id:"ssh"
+        cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+        cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
+      end
+  
+      #Ansible-Node105
+    config.vm.define "ansible-node105" do |cfg|
+        cfg.vm.box = "centos/7"
+        cfg.vm.provider "virtualbox" do |vb|
+          vb.name = "Ansible-Node105(github_SysNet4Admin)"
+          vb.customize ["modifyvm", :id, "--audio", "none"]
+        end
+        cfg.vm.host_name = "ansible-node105"
+        cfg.vm.network "public_network", ip: "192.168.0.105", bridge: "en0: Wi-Fi (Wireless)"
+        cfg.vm.network "forwarded_port", guest:22, host:60105, auto_correct:true, id:"ssh"
+        cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+        cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
+      end
     
-    cfg.vm.provision "shell", inline: "ansible-playbook ansible_env_ready.yml"
-    cfg.vm.provision "shell", path: "add_ssh_auth.sh", privileged: false
+  
+    # ============== #
+    # Ubuntu nodes #
+    # ============== #
+  
+    #Ansible-Node201
+    config.vm.define "ansible-node201" do |cfg|
+      cfg.vm.box = "ubuntu/trusty64"
+      cfg.vm.provider "virtualbox" do |vb|
+        vb.name = "Ansible-Node201(github_SysNet4Admin)"
+        vb.customize ["modifyvm", :id, "--audio", "none"]
+      end
+      cfg.vm.host_name = "ansible-node201"
+      cfg.vm.network "public_network", ip: "192.168.0.201", bridge: "en0: Wi-Fi (Wireless)"
+      cfg.vm.network "forwarded_port", guest:22, host:60201, auto_correct:true, id:"ssh"
+      cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+    end
+    #Ansible-Node202
+    config.vm.define "ansible-node202" do |cfg|
+        cfg.vm.box = "ubuntu/trusty64"
+        cfg.vm.provider "virtualbox" do |vb|
+          vb.name = "Ansible-Node202(github_SysNet4Admin)"
+          vb.customize ["modifyvm", :id, "--audio", "none"]
+        end
+        cfg.vm.host_name = "ansible-node202"
+        cfg.vm.network "public_network", ip: "192.168.0.202", bridge: "en0: Wi-Fi (Wireless)"
+        cfg.vm.network "forwarded_port", guest:22, host:60202, auto_correct:true, id:"ssh"
+        cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      end
+      #Ansible-Node203
+    config.vm.define "ansible-node203" do |cfg|
+        cfg.vm.box = "ubuntu/trusty64"
+        cfg.vm.provider "virtualbox" do |vb|
+          vb.name = "Ansible-Node203(github_SysNet4Admin)"
+          vb.customize ["modifyvm", :id, "--audio", "none"]
+        end
+        cfg.vm.host_name = "ansible-node203"
+        cfg.vm.network "public_network", ip: "192.168.0.203", bridge: "en0: Wi-Fi (Wireless)"
+        cfg.vm.network "forwarded_port", guest:22, host:60203, auto_correct:true, id:"ssh"
+        cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      end
+      #Ansible-Node204
+    config.vm.define "ansible-node204" do |cfg|
+        cfg.vm.box = "ubuntu/trusty64"
+        cfg.vm.provider "virtualbox" do |vb|
+          vb.name = "Ansible-Node204(github_SysNet4Admin)"
+          vb.customize ["modifyvm", :id, "--audio", "none"]
+        end
+        cfg.vm.host_name = "ansible-node204"
+        cfg.vm.network "public_network", ip: "192.168.0.204", bridge: "en0: Wi-Fi (Wireless)"
+        cfg.vm.network "forwarded_port", guest:22, host:60204, auto_correct:true, id:"ssh"
+        cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      end
+      #Ansible-Node205
+    config.vm.define "ansible-node205" do |cfg|
+        cfg.vm.box = "ubuntu/trusty64"
+        cfg.vm.provider "virtualbox" do |vb|
+          vb.name = "Ansible-Node205(github_SysNet4Admin)"
+          vb.customize ["modifyvm", :id, "--audio", "none"]
+        end
+        cfg.vm.host_name = "ansible-node205"
+        cfg.vm.network "public_network", ip: "192.168.0.205", bridge: "en0: Wi-Fi (Wireless)"
+        cfg.vm.network "forwarded_port", guest:22, host:60205, auto_correct:true, id:"ssh"
+        cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      end
+  
+   
+    # ============== #
+    # Ansible Server #
+    # ============== #
+  
+    config.vm.define "ansible-server" do |cfg|
+      cfg.vm.box = "centos/7"
+      cfg.vm.provider "virtualbox" do |vb|
+        vb.name = "Ansible-Server(github_SysNet4Admin)"
+        vb.customize ["modifyvm", :id, "--audio", "none"]
+      end
+      cfg.vm.host_name="ansible-server"
+      cfg.vm.network "public_network", ip:"192.168.0.10", bridge: "en0: Wi-Fi (Wireless)"
+      cfg.vm.network "forwarded_port", guest:22, host:60010, auto_correct: true, id:"ssh"
+      cfg.vm.synced_folder "./data", "/vagrant", disabled:true
+      cfg.vm.provision "shell", inline: "sudo yum install epel-release -y"
+      cfg.vm.provision "shell", inline: "yum install ansible -y"
+      cfg.vm.provision "file", source: "ansible_env_ready.yml", destination: "ansible_env_ready.yml"
+      cfg.vm.provision "shell", inline: "ansible-playbook ansible_env_ready.yml"
+    end
   end
-end
+  

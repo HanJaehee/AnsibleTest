@@ -15,3 +15,8 @@
   tasks:
     - name: set timezone to 'Korea Standard Time'
       win_timezone: timezone='Korea Standard Time'
+# check linux time
+# ans all -m shell -a "timedatectl | grep 'Time zone'" -k
+
+# check windows time
+# ans Windows -m win_shell -a "powershell Get-TimeZone" -k
