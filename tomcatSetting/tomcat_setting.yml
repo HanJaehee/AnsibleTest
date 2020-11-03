@@ -1,0 +1,6 @@
+---
+- name: tomcat-setting
+  hosts: CentOS
+  gather_facts: no
+
+  tasks:
