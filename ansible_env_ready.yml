@@ -22,6 +22,17 @@
         name: sshpass
         state: present
 
+    - name: Generate sshkey
+      become: yes
+      become_user: vagrant
+      shell: "{{item}}"
+      with_items:
+        - "ssh-keyscan 192.168.0.101 >> ~/.ssh/known_hosts"
+        - "ssh-keyscan 192.168.0.102 >> ~/.ssh/known_hosts"
+        - "ssh-keyscan 192.168.0.103 >> ~/.ssh/known_hosts"
+        - "ssh-keyscan 192.168.0.104 >> ~/.ssh/known_hosts"
+        - "ssh-keyscan 192.168.0.105 >> ~/.ssh/known_hosts"
+
     - name: Create vim env's directories & files
       shell: "{{ item }}"
       with_items:
